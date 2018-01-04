@@ -2,7 +2,7 @@
 
     <dbname value="cool_weather"/>
 
-    <versio value="1"/>
+    <version value="1"/>
 
     <list>
         <mapping class="com.example.administrator.xsweather.db.Province"/>

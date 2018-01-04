@@ -45,10 +45,10 @@ public class Utility {
             try{
                 JSONArray allCities = new JSONArray(reponse);
                 for (int i = 0; i < allCities.length(); i++){
-                    JSONObject CityObject = allCities.getJSONObject(i);
+                    JSONObject cityObject = allCities.getJSONObject(i);
                     City city = new City();
-                    city.setCityName(CityObject.getString("name"));
-                    city.setCityCode(CityObject.getInt("id"));
+                    city.setCityName(cityObject.getString("name"));
+                    city.setCityCode(cityObject.getInt("id"));
                     city.setProvinceId(provinceId);
                     city.save();
                 }
@@ -68,10 +68,10 @@ public class Utility {
             try{
                 JSONArray allCounties = new JSONArray(reponse);
                 for (int i = 0; i < allCounties.length(); i++){
-                    JSONObject CountyObject = allCounties.getJSONObject(i);
+                    JSONObject countyObject = allCounties.getJSONObject(i);
                     County county = new County();
-                    county.setCountyName(CountyObject.getString("name"));
-                    county.setWeatherId(CountyObject.getInt("id"));
+                    county.setCountyName(countyObject.getString("name"));
+                    county.setWeatherId(countyObject.getInt("id"));
                     county.setCityId(cityId);
                     county.save();
                 }

@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.administrator.xsweather.gson.Forecast;
 import com.example.administrator.xsweather.gson.Weather;
+import com.example.administrator.xsweather.service.AutoUpdateService;
 import com.example.administrator.xsweather.util.HttpUtil;
 import com.example.administrator.xsweather.util.Utility;
 
@@ -214,6 +215,8 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     /**

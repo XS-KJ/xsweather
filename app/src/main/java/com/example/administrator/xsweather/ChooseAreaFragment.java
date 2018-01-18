@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.administrator.xsweather.db.City;
 import com.example.administrator.xsweather.db.County;
 import com.example.administrator.xsweather.db.Province;
+import com.example.administrator.xsweather.gson.Weather;
 import com.example.administrator.xsweather.util.HttpUtil;
 import com.example.administrator.xsweather.util.Utility;
 
@@ -113,10 +114,17 @@ public class ChooseAreaFragment extends Fragment {
                     queryCounties();
                 }else if (currentLevel == LEVEL_COUNTY){
                     String weatherId = countyList.get(position).getWeatherId();
-                    Intent intent = new Intent(getActivity(),WeatherActivity.class);
-                    intent.putExtra("weather_id",weatherId);
-                    startActivity(intent);
-                    getActivity().finish();
+                    if (getActivity() instanceof MainActivity){
+                        Intent intent = new Intent(getActivity(),WeatherActivity.class);
+                        intent.putExtra("weather_id",weatherId);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }else if (getActivity() instanceof WeatherActivity){
+                        WeatherActivity activity = (WeatherActivity) getActivity();
+                        activity.drawerLayout.closeDrawers();
+                        activity.swipeRefresh.setRefreshing(true);
+                        activity.requestWeather(weatherId);
+                    }
                 }
             }
         });

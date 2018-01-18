@@ -20,18 +20,18 @@ public class Suggestion {
     public class Comfort{
 
         @SerializedName("txt")
-        public String into;
+        public String info;
     }
 
     public class CatWash{
 
         @SerializedName("txt")
-        public String into;
+        public String info;
     }
 
     public class Sport{
 
         @SerializedName("txt")
-        public String into;
+        public String info;
     }
 }

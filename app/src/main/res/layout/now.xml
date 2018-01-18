@@ -20,4 +20,5 @@
         android:layout_gravity="end"
         android:textColor="#fff"
         android:textSize="20sp"/>
+
 </LinearLayout>
